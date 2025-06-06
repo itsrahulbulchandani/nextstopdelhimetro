@@ -265,6 +265,8 @@
             padding: 2rem 1rem 6rem;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
             overflow: hidden;
+            position: relative;
+            z-index: 1;
         }
 
         nav {
@@ -274,6 +276,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem;
+            position: relative;
+            z-index: 1000;
         }
 
         .logo {
@@ -685,6 +689,8 @@
 
             .mobile-menu-btn {
                 display: block;
+                position: relative;
+                z-index: 1002;
             }
 
             .nav-links {
@@ -693,12 +699,13 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: var(--primary-color);
+                background: var(--secondary-color);
                 padding: 1rem;
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
-                z-index: 1000;
+                z-index: 1001;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
 
             .nav-links.show {
@@ -710,6 +717,11 @@
                 padding: 0.5rem 0;
                 width: 100%;
                 text-align: center;
+            }
+
+            main {
+                position: relative;
+                z-index: 0;
             }
         }
 

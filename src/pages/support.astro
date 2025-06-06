@@ -199,6 +199,8 @@
             padding: 2rem 1rem 6rem;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
             overflow: hidden;
+            position: relative;
+            z-index: 1;
         }
 
         .support-hero {
@@ -213,6 +215,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem;
+            position: relative;
+            z-index: 1000;
         }
 
         .logo {
@@ -444,12 +448,38 @@
         }
 
         @media (max-width: 768px) {
-            .support-hero {
-                min-height: 250px;
+            nav {
+                position: relative;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: relative;
+                z-index: 1002;
             }
 
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--secondary-color);
+                padding: 1rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                z-index: 1001;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .support-main {
+                position: relative;
+                z-index: 0;
             }
 
             .contact-methods {
@@ -460,71 +490,6 @@
             .form-group select,
             .form-group textarea {
                 font-size: 16px; /* Prevents zoom on mobile */
-            }
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1001;
-        }
-
-        .mobile-menu-btn:hover {
-            opacity: 0.8;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                position: relative;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--primary-color);
-                padding: 1rem;
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-                z-index: 1000;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .nav-links a {
-                margin: 0;
-                padding: 0.5rem 0;
-                width: 100%;
-                text-align: center;
-                font-size: 1.1rem;
-            }
-
-            .nav-links a:hover {
-                background: rgba(255, 255, 255, 0.1);
-            }
-
-            .support-hero {
-                min-height: 250px;
-            }
-
-            .contact-methods {
-                grid-template-columns: 1fr;
             }
         }
     </style>
