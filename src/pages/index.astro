@@ -590,12 +590,18 @@
                 gap: 2rem;
             }
 
-            .features-showcase.reverse {
+            .features-showcase.reverse,
+            .step:nth-child(even) {
                 flex-direction: column;
             }
 
             .hero-content {
                 margin-top: 2rem;
+            }
+
+            .phone-mockup {
+                width: 240px;
+                height: 490px;
             }
         }
 
@@ -614,6 +620,57 @@
 
             .features-grid, .steps, .user-types {
                 grid-template-columns: 1fr;
+            }
+
+            .phone-mockup {
+                width: 220px;
+                height: 450px;
+            }
+
+            .step {
+                padding: 0 1rem;
+            }
+
+            .step-content {
+                text-align: center;
+            }
+
+            .step-number {
+                margin: 0 auto 1rem;
+            }
+
+            .steps {
+                gap: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem !important;
+                padding: 0 1rem;
+            }
+
+            .how-it-works {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .phone-mockup {
+                width: 180px;
+                height: 370px;
+                border-radius: 35px;
+            }
+
+            .phone-mockup::before {
+                width: 100px;
+                height: 20px;
+            }
+
+            .app-screenshot {
+                border-radius: 30px;
+            }
+
+            .step {
+                gap: 2rem;
             }
         }
     </style>
