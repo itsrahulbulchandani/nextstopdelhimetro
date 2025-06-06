@@ -8,6 +8,34 @@
     <meta name="theme-color" content="#2563eb">
     <title>Next Stop - Your Delhi Metro Station Alert Companion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Wait for the DOM to be loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('show');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('show')) {
+                        navLinks.classList.remove('show');
+                    }
+                });
+
+                // Close menu when clicking on a link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('show');
+                    });
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <header class="hero">
@@ -203,28 +231,6 @@
             <p>&copy; 2024 Next Stop. All rights reserved.</p>
         </div> -->
     </footer>
-
-    <script>
-        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('show');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const nav = document.querySelector('.nav-links');
-            const btn = document.querySelector('.mobile-menu-btn');
-            if (!nav.contains(e.target) && !btn.contains(e.target) && nav.classList.contains('show')) {
-                nav.classList.remove('show');
-            }
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('show');
-            });
-        });
-    </script>
 
     <style>
         /* Root Variables */
@@ -737,11 +743,52 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
-            transition: var(--transition);
+            z-index: 1001;
         }
 
         .mobile-menu-btn:hover {
             opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-color);
+                padding: 1rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin: 0;
+                padding: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+                font-size: 1.1rem;
+            }
+
+            .nav-links a:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
         }
     </style>
 </body>
