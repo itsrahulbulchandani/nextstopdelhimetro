@@ -263,10 +263,19 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 2rem 1rem 6rem;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-            overflow: hidden;
             position: relative;
-            z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            z-index: 0;
         }
 
         nav {
@@ -283,6 +292,11 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
+            position: relative;
+        }
+
+        .nav-links {
+            position: relative;
         }
 
         .nav-links a {
@@ -295,6 +309,11 @@
 
         .nav-links a:hover {
             opacity: 1;
+        }
+
+        .nav-links a.active {
+            opacity: 1;
+            font-weight: 600;
         }
 
         .hero-content {
@@ -695,17 +714,18 @@
 
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 right: 0;
-                background: var(--secondary-color);
-                padding: 1rem;
+                background: var(--primary-color);
+                padding: 5rem 1rem 1rem;
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
                 z-index: 1001;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                height: auto;
             }
 
             .nav-links.show {
@@ -714,14 +734,23 @@
 
             .nav-links a {
                 margin: 0;
-                padding: 0.5rem 0;
+                padding: 0.75rem 2rem;
                 width: 100%;
                 text-align: center;
+                font-size: 1.1rem;
+                border-radius: var(--border-radius);
+            }
+
+            .nav-links a:hover {
+                background: rgba(255, 255, 255, 0.1);
             }
 
             main {
                 position: relative;
-                z-index: 0;
+                z-index: 2;
+                margin-top: -2rem;
+                background: var(--background);
+                border-radius: var(--border-radius) var(--border-radius) 0 0;
             }
         }
 
@@ -755,7 +784,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
-            z-index: 1001;
+            z-index: 1002;
         }
 
         .mobile-menu-btn:hover {
@@ -773,17 +802,18 @@
 
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 right: 0;
                 background: var(--primary-color);
-                padding: 1rem;
+                padding: 5rem 1rem 1rem;
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
-                z-index: 1000;
+                z-index: 1001;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                height: auto;
             }
 
             .nav-links.show {
@@ -792,14 +822,23 @@
 
             .nav-links a {
                 margin: 0;
-                padding: 0.5rem 0;
+                padding: 0.75rem 2rem;
                 width: 100%;
                 text-align: center;
                 font-size: 1.1rem;
+                border-radius: var(--border-radius);
             }
 
             .nav-links a:hover {
                 background: rgba(255, 255, 255, 0.1);
+            }
+
+            main {
+                position: relative;
+                z-index: 2;
+                margin-top: -2rem;
+                background: var(--background);
+                border-radius: var(--border-radius) var(--border-radius) 0 0;
             }
         }
     </style>
