@@ -2,7 +2,14 @@ User-agent: *
 Allow: /app-ads.txt
 Allow: /
 
-# Allow Google AdMob crawler specifically
+# Allow Google AdMob and ads.txt crawlers specifically
+User-agent: Google-adstxt
+Disallow:
+
 User-agent: Mediapartners-Google
+Allow: /app-ads.txt
+Allow: /
+
+User-agent: Googlebot
 Allow: /app-ads.txt
 Allow: / 
